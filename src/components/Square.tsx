@@ -1,10 +1,10 @@
-const Square = ({ nextPlayer, setNextPlayer }) => {
+const Square = ({ squares, isXNext, handleClick, value }) => {
   return (
     <div
-      className={nextPlayer ? "square x-symbol" : "square o-symbol"}
-      onClick={() => setNextPlayer(!nextPlayer)}
+      className={squares[value] == "X" ? "square x-symbol" : "square o-symbol"}
+      onClick={() => handleClick(value)}
     >
-      {nextPlayer ? "X" : "O"}
+      {squares[value]}
     </div>
   );
 };

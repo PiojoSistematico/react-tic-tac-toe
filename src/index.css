@@ -159,7 +159,6 @@ body {
 main {
   width: 300px;
   height: 400px;
-  /* border: 0.5rem solid var(--clr-gray-900); */
   background-color: var(--clr-gray-200);
   border-radius: 1rem;
   display: grid;
@@ -169,14 +168,23 @@ main {
 
 h1 {
   align-self: center;
-  /* display: flex;
-  flex-direction: row; */
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
-/* span {
-  font-size: var(--font-size-500);
+button {
+  border: 0.1rem solid var(--clr-gray-400);
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  font-size: var(--font-size-300);
+}
+
+span {
+  padding-left: 1rem;
+  font-size: var(--font-size-700);
   font-weight: var(--font-weight-bold);
-} */
+}
 
 .board {
   border: 0.5rem solid var(--clr-gray-900);
