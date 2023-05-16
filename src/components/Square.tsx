@@ -1,4 +1,14 @@
-const Square = ({ squares, isXNext, handleClick, value }) => {
+type SquareProps = {
+  handleClick: any;
+  squares: any[];
+  value: number;
+};
+
+const Square: React.FunctionComponent<SquareProps> = ({
+  squares,
+  handleClick,
+  value,
+}) => {
   return (
     <div
       className={squares[value] == "X" ? "square x-symbol" : "square o-symbol"}

@@ -6,23 +6,31 @@ const Game = () => {
   const [isXNext, setIsXNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
 
-  function handleClick(index: number) {
+  /* handle the click on a square */
+  function handleClick(index: number): any {
+    /* if the square has a X or O do nothing */
     if (squares[index]) return;
+
+    /* create a copy of squares to modify the new move */
     let newSquares = squares.slice();
     newSquares[index] = isXNext ? "X" : "O";
-
     setSquares(newSquares);
+
+    /* if the current move is a  */
     if (calculateWinner(newSquares)) return;
     setIsXNext(!isXNext);
   }
 
+  /* refresh page for a new game */
   function refreshPage() {
     window.location.reload();
   }
 
+  /* calculate a winner from the current set of values of squares */
   const isThereAWinner = calculateWinner(squares);
+
+  /* if there is a winner change the h1 and add a new game button */
   let header;
-  console.log(header, "winner", isThereAWinner);
   if (isThereAWinner) {
     header = (
       <>
@@ -36,6 +44,7 @@ const Game = () => {
       </>
     );
   } else {
+    /* if there is not a winner show the next move */
     header = (
       <p>
         Next player{" "}
@@ -49,11 +58,7 @@ const Game = () => {
   return (
     <main>
       <h1>{header}</h1>
-      <Board
-        squares={squares}
-        isXNext={isXNext}
-        handleClick={handleClick}
-      ></Board>
+      <Board squares={squares} handleClick={handleClick}></Board>
     </main>
   );
 };
