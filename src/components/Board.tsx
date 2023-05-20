@@ -1,7 +1,7 @@
 import Square from "./Square";
 
 type BoardProps = {
-  handleClick: any;
+  handleClick: (index: number) => void;
   squares: any[];
 };
 

@@ -7,7 +7,7 @@ const Game = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   /* handle the click on a square */
-  function handleClick(index: number): any {
+  function handleClick(index: number): void {
     /* if the square has a X or O do nothing */
     if (squares[index]) return;
 
@@ -29,9 +29,21 @@ const Game = () => {
   /* calculate a winner from the current set of values of squares */
   const isThereAWinner = calculateWinner(squares);
 
+  /* check if are there any squares available */
+  const isThereAPlay = squares.some((elem) => elem == null);
+
   /* if there is a winner change the h1 and add a new game button */
   let header;
-  if (isThereAWinner) {
+  if (!isThereAPlay) {
+    header = (
+      <>
+        <p>
+          <strong>Draw</strong>
+        </p>
+        <button onClick={() => refreshPage()}>New game</button>
+      </>
+    );
+  } else if (isThereAWinner) {
     header = (
       <>
         <p>

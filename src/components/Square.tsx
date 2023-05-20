@@ -1,5 +1,5 @@
 type SquareProps = {
-  handleClick: any;
+  handleClick: (index: number) => void;
   squares: any[];
   value: number;
 };
@@ -11,7 +11,13 @@ const Square: React.FunctionComponent<SquareProps> = ({
 }) => {
   return (
     <div
-      className={squares[value] == "X" ? "square x-symbol" : "square o-symbol"}
+      className={
+        squares[value] == "X"
+          ? "square x-symbol"
+          : squares[value] == "O"
+          ? "square o-symbol"
+          : "square"
+      }
       onClick={() => handleClick(value)}
     >
       {squares[value]}

@@ -171,6 +171,7 @@ h1 {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 button {
@@ -207,12 +208,23 @@ span {
   font-weight: var(--font-weight-bold);
 }
 
+.square:hover,
+button:hover {
+  background-color: var(--clr-gray-300);
+}
+
 .x-symbol {
   color: var(--clr-green-400);
+  pointer-events: none;
 }
 
 .o-symbol {
   color: var(--clr-red-400);
+  pointer-events: none;
+}
+
+p {
+  font-weight: var(--font-weight-bold);
 }
 
 /* Media queries */
